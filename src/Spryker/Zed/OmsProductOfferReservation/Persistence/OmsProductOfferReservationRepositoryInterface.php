@@ -7,8 +7,10 @@
 
 namespace Spryker\Zed\OmsProductOfferReservation\Persistence;
 
+use ArrayObject;
 use Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer;
 use Generated\Shared\Transfer\ReservationResponseTransfer;
+use Generated\Shared\Transfer\StoreTransfer;
 
 interface OmsProductOfferReservationRepositoryInterface
 {
@@ -20,4 +22,17 @@ interface OmsProductOfferReservationRepositoryInterface
     public function getQuantity(
         OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
     ): ReservationResponseTransfer;
+
+    /**
+     * @param string $productOfferReference
+     * @param \ArrayObject|\Generated\Shared\Transfer\OmsStateTransfer[] $omsStateTransfers
+     * @param \Generated\Shared\Transfer\StoreTransfer|null $storeTransfer
+     *
+     * @return \Generated\Shared\Transfer\SalesOrderItemStateAggregationTransfer[]
+     */
+    public function getAggregatedReservations(
+        string $productOfferReference,
+        ArrayObject $omsStateTransfers,
+        ?StoreTransfer $storeTransfer = null
+    ): array;
 }
