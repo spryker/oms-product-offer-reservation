@@ -9,13 +9,13 @@ namespace Spryker\Zed\OmsProductOfferReservation\Communication\Plugin\Oms;
 
 use Generated\Shared\Transfer\ReservationRequestTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\OmsExtension\Dependency\Plugin\ReservationHandlerTerminationAwareStrategyPluginInterface;
+use Spryker\Zed\OmsExtension\Dependency\Plugin\ReservationPostSaveTerminationAwareStrategyPluginInterface;
 
 /**
  * @method \Spryker\Zed\OmsProductOfferReservation\OmsProductOfferReservationConfig getConfig()
  * @method \Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservationFacadeInterface getFacade()
  */
-class ProductOfferReservationHandlerTerminationAwareStrategyPlugin extends AbstractPlugin implements ReservationHandlerTerminationAwareStrategyPluginInterface
+class ProductOfferReservationPostSaveTerminationAwareStrategyPlugin extends AbstractPlugin implements ReservationPostSaveTerminationAwareStrategyPluginInterface
 {
     /**
      * {@inheritDoc}
