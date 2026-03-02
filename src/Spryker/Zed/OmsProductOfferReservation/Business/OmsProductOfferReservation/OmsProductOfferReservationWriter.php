@@ -30,11 +30,6 @@ class OmsProductOfferReservationWriter implements OmsProductOfferReservationWrit
      */
     protected $omsProductOfferReservationMapper;
 
-    /**
-     * @param \Spryker\Zed\OmsProductOfferReservation\Persistence\OmsProductOfferReservationEntityManagerInterface $omsProductOfferReservationEntityManager
-     * @param \Spryker\Zed\OmsProductOfferReservation\Persistence\OmsProductOfferReservationRepositoryInterface $omsProductOfferReservationRepository
-     * @param \Spryker\Zed\OmsProductOfferReservation\Business\Mapper\OmsProductOfferReservationMapper $omsProductOfferReservationMapper
-     */
     public function __construct(
         OmsProductOfferReservationEntityManagerInterface $omsProductOfferReservationEntityManager,
         OmsProductOfferReservationRepositoryInterface $omsProductOfferReservationRepository,
@@ -45,11 +40,6 @@ class OmsProductOfferReservationWriter implements OmsProductOfferReservationWrit
         $this->omsProductOfferReservationMapper = $omsProductOfferReservationMapper;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return void
-     */
     public function writeReservation(ReservationRequestTransfer $reservationRequestTransfer): void
     {
         $omsProductOfferReservationTransfer = $this->omsProductOfferReservationRepository

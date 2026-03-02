@@ -14,20 +14,10 @@ use Spryker\DecimalObject\Decimal;
 
 interface OmsProductOfferReservationRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OmsProductOfferReservationTransfer|null
-     */
     public function find(
         ReservationRequestTransfer $reservationRequestTransfer
     ): ?OmsProductOfferReservationTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
-     *
-     * @return \Spryker\DecimalObject\Decimal
-     */
     public function getQuantity(
         OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
     ): Decimal;

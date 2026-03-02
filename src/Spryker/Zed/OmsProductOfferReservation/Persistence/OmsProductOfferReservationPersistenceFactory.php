@@ -20,25 +20,16 @@ use Spryker\Zed\OmsProductOfferReservation\Persistence\Mapper\OmsProductOfferRes
  */
 class OmsProductOfferReservationPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservationQuery
-     */
     public function getOmsProductOfferReservationPropelQuery(): SpyOmsProductOfferReservationQuery
     {
         return SpyOmsProductOfferReservationQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\OmsProductOfferReservation\Persistence\Mapper\OmsProductOfferReservationMapper
-     */
     public function createOmsProductOfferReservationMapper(): OmsProductOfferReservationMapper
     {
         return new OmsProductOfferReservationMapper();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
-     */
     public function getSalesOrderItemPropelQuery(): SpySalesOrderItemQuery
     {
         return $this->getProvidedDependency(OmsProductOfferReservationDependencyProvider::PROPEL_QUERY_SALES_ORDER_ITEM);

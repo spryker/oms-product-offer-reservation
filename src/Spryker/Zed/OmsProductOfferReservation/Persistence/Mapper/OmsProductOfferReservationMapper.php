@@ -12,12 +12,6 @@ use Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservation
 
 class OmsProductOfferReservationMapper
 {
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     * @param \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservation $omsProductOfferReservationEntity
-     *
-     * @return \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservation
-     */
     public function mapOmsProductOfferReservationTransferToOmsProductOfferReservationEntity(
         OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer,
         SpyOmsProductOfferReservation $omsProductOfferReservationEntity
@@ -29,12 +23,6 @@ class OmsProductOfferReservationMapper
         );
     }
 
-    /**
-     * @param \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservation $omsProductOfferReservationEntity
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return \Generated\Shared\Transfer\OmsProductOfferReservationTransfer
-     */
     public function mapOmsProductOfferReservationEntityToOmsProductOfferReservationTransfer(
         SpyOmsProductOfferReservation $omsProductOfferReservationEntity,
         OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer

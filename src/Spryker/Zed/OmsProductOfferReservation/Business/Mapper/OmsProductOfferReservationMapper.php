@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\ReservationRequestTransfer;
 
 class OmsProductOfferReservationMapper
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return \Generated\Shared\Transfer\OmsProductOfferReservationTransfer
-     */
     public function mapReservationRequestTransferToOmsProductOfferReservationTransfer(
         ReservationRequestTransfer $reservationRequestTransfer,
         OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer

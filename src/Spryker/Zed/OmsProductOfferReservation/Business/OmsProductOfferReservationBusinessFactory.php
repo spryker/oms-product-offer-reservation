@@ -21,17 +21,11 @@ use Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservation\O
  */
 class OmsProductOfferReservationBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservation\OmsProductOfferReservationReaderInterface
-     */
     public function createOmsProductOfferReservationReader(): OmsProductOfferReservationReaderInterface
     {
         return new OmsProductOfferReservationReader($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservation\OmsProductOfferReservationWriterInterface
-     */
     public function createOmsProductOfferReservationWriter(): OmsProductOfferReservationWriterInterface
     {
         return new OmsProductOfferReservationWriter(
@@ -41,9 +35,6 @@ class OmsProductOfferReservationBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\OmsProductOfferReservation\Business\Mapper\OmsProductOfferReservationMapper
-     */
     public function createOmsProductOfferReservationMapper(): OmsProductOfferReservationMapper
     {
         return new OmsProductOfferReservationMapper();

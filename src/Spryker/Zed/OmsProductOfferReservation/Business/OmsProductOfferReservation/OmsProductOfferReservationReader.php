@@ -19,19 +19,11 @@ class OmsProductOfferReservationReader implements OmsProductOfferReservationRead
      */
     protected $omsProductOfferReservationRepository;
 
-    /**
-     * @param \Spryker\Zed\OmsProductOfferReservation\Persistence\OmsProductOfferReservationRepositoryInterface $omsProductOfferReservationRepository
-     */
     public function __construct(OmsProductOfferReservationRepositoryInterface $omsProductOfferReservationRepository)
     {
         $this->omsProductOfferReservationRepository = $omsProductOfferReservationRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReservationResponseTransfer
-     */
     public function getQuantity(
         OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
     ): ReservationResponseTransfer {

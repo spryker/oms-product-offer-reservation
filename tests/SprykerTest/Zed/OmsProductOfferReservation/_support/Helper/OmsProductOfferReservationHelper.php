@@ -17,11 +17,6 @@ class OmsProductOfferReservationHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\OmsProductOfferReservationTransfer
-     */
     public function haveOmsProductOfferReservation(array $seedData = []): OmsProductOfferReservationTransfer
     {
         $omsProductOfferReservationTransfer = (new OmsProductOfferReservationBuilder($seedData))->build();

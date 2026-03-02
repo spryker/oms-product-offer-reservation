@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class OmsProductOfferReservationEntityManager extends AbstractEntityManager implements OmsProductOfferReservationEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return void
-     */
     public function create(OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer): void
     {
         $productOfferReservationEntity = $this->getFactory()
@@ -33,11 +28,6 @@ class OmsProductOfferReservationEntityManager extends AbstractEntityManager impl
         $productOfferReservationEntity->save();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return void
-     */
     public function update(OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer): void
     {
         $productOfferReservationEntity = $this->getFactory()

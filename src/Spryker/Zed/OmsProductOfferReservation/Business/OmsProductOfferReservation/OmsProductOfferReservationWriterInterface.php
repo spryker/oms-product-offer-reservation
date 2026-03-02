@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ReservationRequestTransfer;
 
 interface OmsProductOfferReservationWriterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return void
-     */
     public function writeReservation(ReservationRequestTransfer $reservationRequestTransfer): void;
 }

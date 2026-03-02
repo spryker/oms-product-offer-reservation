@@ -37,14 +37,6 @@ class OmsProductOfferReservationBusinessTester extends Actor
 {
     use _generated\OmsProductOfferReservationBusinessTesterActions;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOfferTransfer $productOfferTransfer
-     * @param int $quantity
-     * @param int $itemsCount
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrder
-     */
     public function haveSalesOrderWithItems(
         ProductOfferTransfer $productOfferTransfer,
         int $quantity,
@@ -73,11 +65,6 @@ class OmsProductOfferReservationBusinessTester extends Actor
         return $salesOrderEntity;
     }
 
-    /**
-     * @param \Orm\Zed\Sales\Persistence\SpySalesOrder $salesOrderEntity
-     *
-     * @return \Generated\Shared\Transfer\OmsStateCollectionTransfer
-     */
     public function getOmsStateCollectionTransfer(SpySalesOrder $salesOrderEntity): OmsStateCollectionTransfer
     {
         $stateCollectionTransfer = new OmsStateCollectionTransfer();

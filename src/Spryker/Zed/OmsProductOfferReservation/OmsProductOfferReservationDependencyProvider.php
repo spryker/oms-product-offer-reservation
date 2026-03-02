@@ -21,11 +21,6 @@ class OmsProductOfferReservationDependencyProvider extends AbstractBundleDepende
      */
     public const PROPEL_QUERY_SALES_ORDER_ITEM = 'PROPEL_QUERY_SALES_ORDER_ITEM';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = parent::providePersistenceLayerDependencies($container);
@@ -35,11 +30,6 @@ class OmsProductOfferReservationDependencyProvider extends AbstractBundleDepende
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addSalesOrderItemPropelQuery(Container $container): Container
     {
         $container->set(static::PROPEL_QUERY_SALES_ORDER_ITEM, $container->factory(function () {

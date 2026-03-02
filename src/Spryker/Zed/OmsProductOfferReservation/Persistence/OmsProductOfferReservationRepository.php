@@ -24,11 +24,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class OmsProductOfferReservationRepository extends AbstractRepository implements OmsProductOfferReservationRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OmsProductOfferReservationTransfer|null
-     */
     public function find(
         ReservationRequestTransfer $reservationRequestTransfer
     ): ?OmsProductOfferReservationTransfer {
@@ -55,11 +50,6 @@ class OmsProductOfferReservationRepository extends AbstractRepository implements
             );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
-     *
-     * @return \Spryker\DecimalObject\Decimal
-     */
     public function getQuantity(
         OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
     ): Decimal {
@@ -131,12 +121,6 @@ class OmsProductOfferReservationRepository extends AbstractRepository implements
         return $salesAggregationTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservationQuery $omsProductOfferReservationQuery
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer
-     *
-     * @return \Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservationQuery
-     */
     protected function applyFilters(
         SpyOmsProductOfferReservationQuery $omsProductOfferReservationQuery,
         OmsProductOfferReservationCriteriaTransfer $omsProductOfferReservationCriteriaTransfer

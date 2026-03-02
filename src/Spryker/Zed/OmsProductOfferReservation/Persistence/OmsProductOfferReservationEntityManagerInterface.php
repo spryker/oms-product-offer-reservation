@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\OmsProductOfferReservationTransfer;
 
 interface OmsProductOfferReservationEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return void
-     */
     public function create(OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer
-     *
-     * @return void
-     */
     public function update(OmsProductOfferReservationTransfer $omsProductOfferReservationTransfer): void;
 }

@@ -44,9 +44,6 @@ class OmsProductOfferReservationFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGetQuantitySuccess(): void
     {
         // Arrange
@@ -70,9 +67,6 @@ class OmsProductOfferReservationFacadeTest extends Unit
         $this->assertSame(5, $reservationResponseTransfer->getReservationQuantity()->toInt());
     }
 
-    /**
-     * @return void
-     */
     public function testGetQuantityForNotReservedProductOffer(): void
     {
         // Arrange
@@ -91,9 +85,6 @@ class OmsProductOfferReservationFacadeTest extends Unit
         $this->assertTrue($reservationResponseTransfer->getReservationQuantity()->isZero());
     }
 
-    /**
-     * @return void
-     */
     public function testGetQuantityWithWrongStore(): void
     {
         // Arrange
@@ -118,9 +109,6 @@ class OmsProductOfferReservationFacadeTest extends Unit
         $this->assertTrue($reservationResponseTransfer->getReservationQuantity()->isZero());
     }
 
-    /**
-     * @return void
-     */
     public function testGetAggregatedReservations(): void
     {
         // Arrange
@@ -159,9 +147,6 @@ class OmsProductOfferReservationFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testWriteReservationUpdatesReservationQuantityForProductOffer(): void
     {
         // Arrange
