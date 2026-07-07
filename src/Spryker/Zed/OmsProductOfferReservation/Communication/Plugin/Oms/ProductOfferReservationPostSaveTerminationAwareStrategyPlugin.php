@@ -9,14 +9,24 @@ namespace Spryker\Zed\OmsProductOfferReservation\Communication\Plugin\Oms;
 
 use Generated\Shared\Transfer\ReservationRequestTransfer;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
-use Spryker\Zed\OmsExtension\Dependency\Plugin\ReservationPostSaveTerminationAwareStrategyPluginInterface;
+use Spryker\Zed\OmsExtension\Dependency\Plugin\PrioritizedReservationPostSaveTerminationAwareStrategyPluginInterface;
 
 /**
  * @method \Spryker\Zed\OmsProductOfferReservation\OmsProductOfferReservationConfig getConfig()
  * @method \Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservationFacadeInterface getFacade()
  */
-class ProductOfferReservationPostSaveTerminationAwareStrategyPlugin extends AbstractPlugin implements ReservationPostSaveTerminationAwareStrategyPluginInterface
+class ProductOfferReservationPostSaveTerminationAwareStrategyPlugin extends AbstractPlugin implements PrioritizedReservationPostSaveTerminationAwareStrategyPluginInterface
 {
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
+    public function getPriority(): int
+    {
+        return 500;
+    }
+
     /**
      * {@inheritDoc}
      * - Execute should be terminated because the product offers are used own database table and availability will be updated automatically by events.

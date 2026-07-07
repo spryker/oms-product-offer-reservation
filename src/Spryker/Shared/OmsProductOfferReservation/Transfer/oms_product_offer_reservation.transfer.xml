@@ -73,4 +73,10 @@
         <property name="permissionMask" type="int"/>
     </transfer>
 
+    <transfer name="QueryCriteria">
+    </transfer>
+
+    <transfer name="WhereClause" strict="true">
+    </transfer>
+
 </transfers>

@@ -12,6 +12,9 @@ use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 use Spryker\Zed\OmsExtension\Dependency\Plugin\OmsReservationAggregationPluginInterface;
 
 /**
+ * @deprecated Use {@link \Spryker\Zed\OmsProductOfferReservation\Communication\Plugin\Oms\ProductOfferReservationAggregationQueryCriteriaExpanderPlugin}
+ *             registered on `OmsDependencyProvider::PLUGINS_OMS_RESERVATION_AGGREGATION_QUERY_CRITERIA_EXPANDER` instead.
+ *
  * @method \Spryker\Zed\OmsProductOfferReservation\Persistence\OmsProductOfferReservationRepositoryInterface getRepository()
  * @method \Spryker\Zed\OmsProductOfferReservation\OmsProductOfferReservationConfig getConfig()
  * @method \Spryker\Zed\OmsProductOfferReservation\Business\OmsProductOfferReservationFacadeInterface getFacade()

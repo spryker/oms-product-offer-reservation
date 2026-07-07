@@ -9,8 +9,11 @@ namespace Spryker\Zed\OmsProductOfferReservation\Persistence;
 
 use Generated\Shared\Transfer\OmsProductOfferReservationCriteriaTransfer;
 use Generated\Shared\Transfer\OmsProductOfferReservationTransfer;
+use Generated\Shared\Transfer\QueryCriteriaTransfer;
 use Generated\Shared\Transfer\ReservationRequestTransfer;
 use Generated\Shared\Transfer\SalesOrderItemStateAggregationTransfer;
+use Generated\Shared\Transfer\StoreTransfer;
+use Generated\Shared\Transfer\WhereClauseTransfer;
 use Orm\Zed\Oms\Persistence\Map\SpyOmsOrderItemStateTableMap;
 use Orm\Zed\Oms\Persistence\Map\SpyOmsOrderProcessTableMap;
 use Orm\Zed\OmsProductOfferReservation\Persistence\Map\SpyOmsProductOfferReservationTableMap;
@@ -102,10 +105,21 @@ class OmsProductOfferReservationRepository extends AbstractRepository implements
             ->withColumn(SpyOmsOrderItemStateTableMap::COL_NAME, SalesOrderItemStateAggregationTransfer::STATE_NAME)
             ->withColumn('SUM(' . SpySalesOrderItemTableMap::COL_QUANTITY . ')', SalesOrderItemStateAggregationTransfer::SUM_AMOUNT);
 
-        if ($reservationRequestTransfer->getStore() !== null) {
+        if ($reservationRequestTransfer->getStore() !== null && !$reservationRequestTransfer->getStores()->count()) {
             $salesOrderItemQuery
                 ->useOrderQuery()
                     ->filterByStore($reservationRequestTransfer->getStore()->getName())
+                ->endUse();
+        }
+
+        if ($reservationRequestTransfer->getStores()->count()) {
+            $storeNames = array_map(function (StoreTransfer $store) {
+                return $store->getName();
+            }, $reservationRequestTransfer->getStores()->getArrayCopy());
+
+            $salesOrderItemQuery
+                ->useOrderQuery()
+                    ->filterByStore_In($storeNames)
                 ->endUse();
         }
 
@@ -119,6 +133,25 @@ class OmsProductOfferReservationRepository extends AbstractRepository implements
         }
 
         return $salesAggregationTransfers;
+    }
+
+    public function expandOmsReservationAggregationQueryCriteria(
+        QueryCriteriaTransfer $queryCriteriaTransfer,
+        ReservationRequestTransfer $reservationRequestTransfer
+    ): QueryCriteriaTransfer {
+        $productOfferReference = $reservationRequestTransfer->getProductOfferReference();
+        if (!$productOfferReference) {
+            return $queryCriteriaTransfer;
+        }
+
+        $whereClauseTransfer = (new WhereClauseTransfer())
+            ->setClause(sprintf('%s = ?', SpySalesOrderItemTableMap::COL_PRODUCT_OFFER_REFERENCE))
+            ->setParameters([$productOfferReference]);
+
+        $queryCriteriaTransfer->addWhereClause($whereClauseTransfer);
+        $queryCriteriaTransfer->addGroupByColumn(SpySalesOrderItemTableMap::COL_PRODUCT_OFFER_REFERENCE);
+
+        return $queryCriteriaTransfer;
     }
 
     protected function applyFilters(
