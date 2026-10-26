@@ -19,6 +19,7 @@
         <property name="store" type="Store"/>
         <property name="reservationQuantity" type="decimal"/>
         <property name="sku" type="string"/>
+        <property name="stores" type="Store[]" singular="store"/>
     </transfer>
 
     <transfer name="ReservationResponse">
@@ -74,9 +75,13 @@
     </transfer>
 
     <transfer name="QueryCriteria">
+        <property name="whereClauses" type="WhereClause[]" singular="whereClause"/>
+        <property name="groupByColumns" type="string[]" singular="groupByColumn"/>
     </transfer>
 
     <transfer name="WhereClause" strict="true">
+        <property name="clause" type="string"/>
+        <property name="parameters" type="array" singular="parameter"/>
     </transfer>
 
 </transfers>
