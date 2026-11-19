@@ -32,6 +32,13 @@ class OmsProductOfferReservationMerchantAclEntityRuleExpanderPlugin extends Abst
     protected const OPERATION_MASK_READ = 0b1;
 
     /**
+     * @uses {@link \Spryker\Shared\AclEntity\AclEntityConstants::OPERATION_MASK_CREATE}
+     *
+     * @var int
+     */
+    protected const OPERATION_MASK_CREATE = 0b10;
+
+    /**
      * @uses {@link \Spryker\Shared\AclEntity\AclEntityConstants::OPERATION_MASK_UPDATE}
      *
      * @var int
@@ -53,7 +60,7 @@ class OmsProductOfferReservationMerchantAclEntityRuleExpanderPlugin extends Abst
         $aclEntityRuleTransfers[] = (new AclEntityRuleTransfer())
             ->setEntity('Orm\Zed\OmsProductOfferReservation\Persistence\SpyOmsProductOfferReservation')
             ->setScope(static::SCOPE_INHERITED)
-            ->setPermissionMask(static::OPERATION_MASK_READ | static::OPERATION_MASK_UPDATE);
+            ->setPermissionMask(static::OPERATION_MASK_CREATE | static::OPERATION_MASK_READ | static::OPERATION_MASK_UPDATE);
 
         return $aclEntityRuleTransfers;
     }
